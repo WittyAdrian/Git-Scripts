@@ -1,3 +1,3 @@
-# Project Git Scripts
+# Project Git Scripts```Auto sync repo for Git Scripts```
 ## Description 
-```Auto sync repo for Git Scripts```
+Collection of Python scripts to generate GIT repositories and synchronize data to them.
