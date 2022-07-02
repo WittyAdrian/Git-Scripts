@@ -1,7 +1,6 @@
 import os
 import subprocess
-import glob
-import shutil
+from datetime import datetime
 from github import Github
 
 # personal token
@@ -40,3 +39,5 @@ def sync_git_project(folder_name):
     subprocess.run(["git", "commit", "-m", "AutoSync for {}".format(datetime.now())], shell=True, cwd=folder_name)
     # push the files to the remote git
     subprocess.run(["git", "push"], shell=True, cwd=folder_name)
+
+loop_through_subfolders()

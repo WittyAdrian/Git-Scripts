@@ -50,9 +50,9 @@ def read_variables():
     ACCESS_TOKEN = variables['ACCESS_TOKEN']
     GIT_URL = variables['GIT_URL']    
 
-def copy_gitignore_file(filename):
+def copy_gitignore_file(filename, folder_name):
     print("Copying {} git ignore file...".format(filename.upper()))
-    sourcePath = "{}\\{}}.gitignore".format(os.path.dirname(os.path.realpath(__file__)), filename)
+    sourcePath = "{}\\{}.gitignore".format(os.path.dirname(os.path.realpath(__file__)), filename)
     targetPath = "{}\\.gitignore".format(folder_name)
     print("Copying from [{}] to [{}]".format(sourcePath, targetPath))
     shutil.copyfile(sourcePath, targetPath)
@@ -75,9 +75,9 @@ def create_git_project(project_name, description_value, private_project, folder_
         print("Add .gitignore")
         # Add ignore
         if (os.path.exists("{}/ProjectSettings".format(folder_name))):
-            copy_gitignore_file('unity')
+            copy_gitignore_file('unity', folder_name)
         elif (glob.glob("{}/*.sln".format(folder_name))):
-            copy_gitignore_file('csharp')
+            copy_gitignore_file('csharp', folder_name)
 
     # add all files that there are in now
     subprocess.run(["git", "add", "."], shell=True, cwd=folder_name)
